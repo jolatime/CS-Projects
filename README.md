@@ -1,1 +1,3 @@
-This repository contains most of the projects I've taken up while studying for my Bachelors Degree in Computer Science at Northern Michigan University
+# Jordan Latimer - Programming Resume
+<br>
+This is a collection of projects I've worked on, including coursework from NMU and various side projects. Not everything I've done is displayed here, but it gives a general overview of the work I'm most proud of.
