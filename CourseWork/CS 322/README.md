@@ -1,0 +1,1 @@
+Topics: memory usage, flow of control structures, object implementation, grammars, language paradigms (iterative, structured, functional, logic, object-oriented), and computability. Heavy use of Small Talk to 'implement' our own programming language

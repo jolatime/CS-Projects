@@ -1,0 +1,1 @@
+This course focused on how operating systems worked and topics such as threads, locking, memory

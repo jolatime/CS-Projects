@@ -1,0 +1,1 @@
+This course went over algorithm design strategies. Topics included: asymptotic notation, induction, recurrence relations, sorting, searching, dynamic programming, greedy algorithms, number-theoretic algorithms, NP-completeness and complexity.

@@ -1,0 +1,1 @@
+Introductory course to C++. Topics include pointers, memory management, data structures, object-oriented design and file processing.

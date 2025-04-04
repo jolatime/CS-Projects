@@ -1,0 +1,1 @@
+This course focused on data structures such as Linked Lists, Binary Trees, Stacks while using C++ 
