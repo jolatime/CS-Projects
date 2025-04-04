@@ -1,0 +1,34 @@
+<!--
+	Jordan Latimer
+	Alex Miller
+
+	Adding a contest screen for Admin
+-->
+
+<html>
+	<head>
+		<title> Add Contest</title>
+		<link rel="stylesheet" href="PopupWindows.css">
+	</head>
+	<body>
+		<script rel="text/javascript" src="Helpers.js"> </script>
+		<script type="text/javascript" src="Modify_Contests.js"></script>
+		<h1> Add Contest </h1>
+
+		<!-- form for inserting the contest -->
+		<form id="Inputs">
+			<label> Name: </label>
+			<input id="Name" type="text" align="middle" required></input>
+			<lable> Description: </lable>
+			<input id="Desc" type="text" align="middle" required></input>
+		</form>
+		<br>
+		<br>
+
+		<!-- submitting and closing -->
+		<div id="Submit">
+			<input id="AddContest" type="button" value="Add Contest" onclick="AddContest();">
+			<button onclick="self.close();"> Cancel </button>
+		</div>
+	</body>
+</html>

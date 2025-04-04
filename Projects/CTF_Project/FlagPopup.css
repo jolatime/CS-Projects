@@ -1,0 +1,113 @@
+html {
+    background-color: green;
+    height: 100%;  /* Ensure full height */
+    margin: 0;
+}
+
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+h1, h3 {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Center the form and make it responsive */
+#Inputs {
+    display: grid;
+    grid-template-columns: 1fr 2fr;  /* Adjust the columns */
+    grid-gap: 10px;
+    margin: 5% auto;
+    padding: 20px;
+    max-width: 800px;  /* Limit the width */
+    box-sizing: border-box;
+    width: 100%;  /* Full width for responsiveness */
+}
+
+/* Label styling */
+label {
+    text-align: right;
+    font-size: 1.2em;
+    padding-right: 10px;
+}
+
+/* Submit container adjustments */
+#Submit {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#Submit input[type="button"],
+#Submit button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Button styling */
+button {
+    background-color: red;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Adjust width for submit buttons */
+#submit * {
+    width: auto;
+    height: auto;
+    font-size: 1.2em;
+}
+
+/* Make sure inputs are responsive */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+input[type="radio"] {
+    margin: 0 10px;
+}
+
+input[type="radio"]:last-child {
+    margin-right: 0;
+}
+
+#hint1Text, #hint2Text, #hint3Text {
+    display: none;
+}
+
+/* Show the respective hint fields based on the selected radio button */
+#hint1:checked ~ #hint1Text {
+    display: block;
+}
+
+#hint2:checked ~ #hint1Text,
+#hint2:checked ~ #hint2Text {
+    display: block;
+}
+
+#hint3:checked ~ #hint1Text,
+#hint3:checked ~ #hint2Text,
+#hint3:checked ~ #hint3Text{
+    display: block;
+}

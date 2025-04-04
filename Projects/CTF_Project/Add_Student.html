@@ -1,0 +1,39 @@
+<!-- 
+	Alex Miller
+	Jordan Latimer
+	
+	Adding a student page for Admin
+-->
+<html>
+	<head>
+		<title> Add Student </title>
+		<link rel="stylesheet" href="PopupWindows.css">
+		<script rel="text/javascript" src="Helpers.js"> </script>
+		<script rel="text/javascript" src="EditUsers.js"> </script>
+	</head>
+	<body>
+		<h1> Add Student </h1>
+
+		<!-- form for adding a student -->
+		<form id="Inputs">
+			<label> Name: </label>
+			<input id="Name" type="text" align="middle"></input>
+			<label> Email: </label>
+			<input id="EM" type="text" align="middle"></input>
+			<label> Password: </label>
+			<input id="PS1" type="password" align="middle"></input>
+			<label> Confirm Password: </label>
+			<input id="PS2" type="password" align="middle"></input>
+			<label> Show Password </label>
+			<input type="checkbox" onclick="ShowPassword()" id="ShowPass">
+		</form>
+		<br>
+		<br>
+
+		<!-- submitting or closing-->
+		<div id="Submit">
+			<input id="AddStudent" type="submit" onclick="AddStudent();">
+			<button onclick="self.close();"> Cancel </button>
+		</div>
+	</body>
+</html>

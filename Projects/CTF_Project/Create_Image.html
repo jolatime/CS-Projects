@@ -1,0 +1,61 @@
+<!--
+    Alex Miller
+    Jordan Latimer
+
+    Page for creating images for flags
+-->
+<html>
+    <head>
+        <title> Create Image </title>
+        <link rel="stylesheet" href="PopupWindows.css">
+        <script rel="text/javascript" src="Helpers.js"> </script>
+        <script rel="text/javascript" src="Create_Image.js"> </script>
+    </head>
+    <body id="body">
+        <div id="labels">
+            <h1> Create Image </h1>
+
+            <!-- Form for creating image -->
+            <form>
+                <label> Image Name: </label>
+                <input id="ImageName" type="text" placeholder="image name"> 
+            </form>
+        </div>
+
+        <br>
+
+        <!-- Div for add/delete buttons -->
+        <div id="Butts">
+            <label> Name: </label>
+            <input id="filename" type="text" placeholder="Folder or File name">
+            <br>
+            <button onclick="getFile(true, 'Butts')"> Add Folder</button>
+            <button onclick="getFile(false, 'Butts')"> Add File </button>
+            <button onclick="DeleteFile()" style="background-color: red;"> Delete </button>
+        </div>
+
+        <!-- Div for text area and drop box -->
+        <div id="TextBox">
+            <textarea id="filecontents" placeholder="Enter contents of files here" cols="60" rows="20"></textarea>
+        </div>
+
+        <!-- Drop box to drop in files -->
+        <div id="DropBox">
+            <p> Drag and Drop files here or: </p>
+            <input type="file" id="FileInput" multiple>
+        </div>
+        <button id="SendFile" onclick="getFile(false, '')"> Send =></button>
+
+        <!-- Div for File Tree -->
+        <div id="FileTree">
+            <label> File Tree </label>
+        </div>
+
+        <!-- Submit and Cancel buttons-->
+        <div id="Submition">   
+            <input onclick="CreateImage()" style="background-color: lawngreen;" type="submit" value="Create Image">
+            <button style="background-color: red;" type="submit" onclick="CheckPage()"> Cancel </button>
+        </div>
+
+    </body>
+</html>

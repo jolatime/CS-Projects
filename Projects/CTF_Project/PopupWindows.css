@@ -1,0 +1,104 @@
+html {
+	background-color: green;
+}
+body {
+	background-color: white;
+}
+form {
+	text-align: center;
+}
+h1, h3 {
+	text-align: center;
+	font-weight: bold;
+}
+#Inputs {
+	display: grid;
+	grid-template-columns: max-content max-content;
+	grid-gap: 5px;
+	margin-left: 25%;
+	margin-top: 25%;
+}
+label {
+	text-align: right;
+}
+#Submit {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+	#submit * {
+		width: 15%;
+		height: 5%;
+	}
+	#Submit button {
+		background-color: red;
+		font-weight: bold;
+	}
+
+#hint1Text, #hint2Text, #hint3Text {
+    display: none;
+}
+
+/* Show the respective hint fields based on the selected radio button */
+#hint1:checked ~ #hint1Text {
+    display: block;
+}
+
+#hint2:checked ~ #hint1Text,
+#hint2:checked ~ #hint2Text {
+    display: block;
+}
+
+#hint3:checked ~ #hint1Text,
+#hint3:checked ~ #hint2Text,
+#hint3:checked ~ #hint3Text{
+    display: block;
+}
+
+/* for Create Image */
+#body {
+	display: grid;
+	grid-template-rows: 25% auto auto auto auto auto 25%;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+	justify-items: center;
+}
+#labels {
+	grid-row: 1/2;
+	grid-column: 3/4;
+}
+#Butts {
+	grid-row: 2/3;
+	grid-column: 3/4;
+	align-self: flex-end;
+}
+#TextBox {
+	grid-row: 3/6;
+	grid-column: 1/3;
+}
+textarea {
+	resize: none;
+}
+#DropBox {
+	grid-row: 3/6;
+	grid-column: 3/4;
+	border: 3px black dashed;
+	align-content: center;
+	justify-items: center;
+}
+#SendFile {
+	grid-row: 6/7;
+	grid-column: 3/4;
+}
+#FileTree {
+	grid-row: 3/6;
+	grid-column: 4/6;
+}
+#Submition {
+	grid-row: 7/8;
+	grid-column: 3/4;
+}
+.selected-node {
+	background-color: #f0f0f0;
+	font-weight: bold;
+	color: #333;
+}

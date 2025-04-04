@@ -1,0 +1,128 @@
+<!-- 
+ 	Alex Miller
+	Jordan Latimer
+	
+	Login for CTF
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>NMU CTF Login</title>
+
+		<!-- limited styling needed so inside html file -->
+		<style>
+			html {
+				background-color: green;
+			}
+			body {
+				display: grid;
+				background-color: white;
+				grid-template-rows: auto auto auto;
+				grid-template-columns: auto auto auto;
+			}
+			#inputFields {
+				grid-row: 2/3;
+				grid-column: 2/3;
+				background-color: green;
+				text-align: center;
+				height: 100%;
+			}
+			#loginform {
+				background-color: lightgreen;
+				margin: 10px;
+				height: 65%;
+			}
+				#loginform * {
+					margin-top: 50px;
+				}
+			a {
+				text-decoration: none;
+			}
+			h1 {
+				font-size: 400%;
+				font-weight: bold;
+			}
+			button {
+				width: 12%;
+				height: 7%;
+				font-weight: bold;
+				font-size: 100%;
+				background-color: lawngreen;
+			}
+			label {
+				font-weight: bold;
+				font-size: 100%;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div>
+		</div>
+
+		<!-- div for everything needed -->
+		<div id="inputFields">
+			<h1> NMU CTF </h1>
+			<form id='loginform'>
+				<br>
+				<label> Username: </label>
+				<input id="EM" type="text" name="email">
+				<br>
+
+				<label> Password: </label>
+				<input id="PS" type="password" name="password">
+				<br>
+
+				<label> Show Password </label>
+				<input type="checkbox" onclick="ShowPassword()" id="ShowPass">
+				<br>
+
+				<button type="submit"> Login </button>
+			</form>
+			<script>
+				document.getElementById('loginform').addEventListener('submit', SendCreds);
+
+				// show the password when check box is checked
+				function ShowPassword() {
+					let element = document.getElementById('PS');
+					if (element.type === 'password') element.type = 'text';
+					else element.type = 'password';
+				}
+
+				// send the credentials to the db
+				async function SendCreds() {
+					event.preventDefault(); // send in JSON
+
+					// values of the email and password entered
+					var EM = document.getElementById('EM').value;
+					var PS = document.getElementById('PS').value;
+
+					// send the email and password
+					const data = { email: EM, password: PS};
+					const res = await fetch('/login', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(data),
+					});
+					if (res.ok) { // okay response from server
+						const RB = await res.json();
+						if (RB && RB.redirectTo) { // redirect client to new webpage
+							const email = RB.email;
+							if (RB.redirectTo === '/Admin_Contest') window.location.href = RB.redirectTo + '?email=' + email + '&admin=True';
+							else window.location.href = RB.redirectTo + '?email=' + email + '&admin=False';
+						}
+						else { // error handling
+							console.error("redirect URL issue");
+						}
+					}
+					else { // what user entered doesnt match up to db
+						alert("Invalid Credentials");
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,150 @@
+/*
+	Alex Miller
+	Jordan Latimer
+
+	CSS for Profile Page on Admin side
+*/
+
+body {
+	display: grid;
+	
+	/* columns and rows sizes */
+	grid-template-columns: auto auto auto auto auto;
+	grid-template-rows: auto auto auto auto auto auto;
+	
+	background-color: lightgreen;
+}
+html {
+	background-color: green;
+}
+
+/* Header */
+#Header {
+	grid-row: 1/3;
+	grid-column: 1/6;
+	margin: 50px;
+	text-align: center;
+	background-color: green;
+}
+	.HeadButts {
+		height: 25px;
+		width: 150px;
+	}
+	#ModifyContests {
+		background-color: blue;
+		color: white;
+	}
+	#Logout {
+		background-color: red;
+	}
+	#ContestPage {
+		background-color: lawngreen;
+	}
+	
+
+/* Student side of the page */
+#Students {
+	grid-row: 4/6;
+	grid-column: 1/3;
+	margin: 50px;
+	height: 500px;
+	text-align: center;
+	background-color: green;
+}
+	#StudentsTable, #FlagsTable {
+		margin: 10px;
+		height: 75%;
+		overflow-y: scroll;
+	}
+
+/* Flag side of the page */
+#Flags {
+	grid-row: 4/6;
+	grid-column: 4/6;
+	margin: 50px;
+	text-align: center;
+	background-color: green;
+}
+
+/* Popup for deleting students */
+#DialogBox {
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	padding: 100px;
+	z-index: 100;
+}
+	#DialogBox #Delete {
+		background-color: red;
+		font-weight: bold;
+	}
+
+/* buttons */
+#AddStudent {
+	background-color: lawngreen;
+}
+#EditStudent {
+	background-color: blue;
+	color: white;
+}
+#DeleteStudent {
+	background-color: red;
+}
+#AddStudent {
+	width: 100px;
+	height: 25px;
+	background-color: lawngreen;
+}
+
+/* tooltips */
+.tooltip {
+	font-weight: bold;
+	color: white;
+	display: inline;
+  }
+  .tooltip:hover .tooltipText {
+	visibility: visible;
+  }
+  .tooltip .tooltipText {
+	visibility: hidden;
+	height: auto;
+	background-color: gray;
+	color: black;
+	text-align: center;
+	position: absolute;
+	padding: 5px;
+	z-index: 100;
+  }
+
+/* no ID stuff */
+table {
+	width: 100%;
+	border: 3px solid black;
+	border-collapse: seperate;
+	border-spacing: 0;
+	background-color: white;
+}
+table thead {
+	top: 0;
+	position: sticky;
+	position: -webkit-sticky;
+	z-index: 1;
+	background-color: black;
+	color: white;
+}
+td {
+	border: 3px solid black;
+	text-align: center;
+	height: 50px;
+}
+
+button {
+	width: 75%;
+	height: 50%;
+	font-weight: bold;
+	text-align: center;
+}
+h1 {
+	display: inline;
+	font-weight: bold;
+}

@@ -1,0 +1,167 @@
+<!--
+  Jordan Latimer
+  Alex Miller
+
+  Modify Contest screen for Admin
+-->
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contest Menu</title>
+    <link rel="stylesheet" href="Modify_Contests.css">
+    <script rel="text/javascript" src="Helpers.js"> </script>
+    <script rel="text/javascript" src="Modify_Contests.js"> </script>
+  </head>
+  <body>
+    
+    <!-- header stuff -->
+    <div id="HeaderStuff">
+      <h1> Modify Contests </h1> 
+      <div class="tooltip">
+        ?
+        <span class="tooltipText">
+          This is where you can change anything involving <span style="color:blue;">Contests</span>
+        </span>
+      </div>
+      <br> 
+      <br>
+      <input type="button" id="DoneButt" onclick="BacktoProfile()" value="Back to Profile">
+    </div>
+
+    <!-- Contests  -->
+    <div id="Contests">
+      <h1> Contests </h1> 
+      <div class="tooltip">
+        ?
+        <span class="tooltipText">
+          select a <span style="color:blue;">Contest</span> by <i>clicking</i> on one
+          <br>
+          <span style="color:lawngreen;">Add:</span> add a new contest
+          <br>
+          <span style="color:blue;">Active:</span> set a <i>selected</i> contest active and available for your students
+          <br>
+          <span style="color:red;">Delete:</span> delete a <i>selected</i> contest
+        </span>
+      </div>
+      <br>
+      <br>
+      <div id="ContestContent">
+
+        <!-- buttons to manipulate contests -->
+        <div id="Buttons">
+          <input class="AddButt" type="button" onclick="Popup('Add_Contest.html', getEmail())" value="Add">
+          <input type="button" onclick="setContestActive()" value="Activate">
+          <input class="DeleteButt" type="button" onclick="deleteContest();" value="Delete">
+        </div>
+
+        <!-- list of contests -->
+        <div id="ContestList">
+          <ul id="ContestListItems">
+ 
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flags and Images -->
+    <div id="FlagsAndImages">
+      <h1> Flags and Images </h1> 
+      <div class="tooltip">
+        ?
+        <span class="tooltipText">
+          when selecting a contest, the <span style="color:blue;">Flags</span> and <span style="color:blue;">Images</span> of that contest will show up here.
+          <br>
+          each <span style="color:blue;">Flag</span> <span style="color:red;">NEEDS</span> a <i>selected</i> contest to be <span style="color:lawngreen;">Added</span>
+          <br>
+          this is not the case for <span style="color:blue;">Images</span>
+          <br>
+          Some <span style="color:blue;">Flags</span> may show up with <span style="color: red;">NONE</span>
+          but be in different <span style="color:blue;">Contests</span>
+          you can select <span style="color:blue;">Flags</span> to delete or change by <i>clicking</i> on them.
+        </span>
+      </div>
+      <br>
+      <br>
+      <div id="FIContent">
+
+        <!-- buttons for flags and images -->
+         <div id="Buttons">
+          <input class="AddButt" type="button" onclick="PopupForFlag('Add_Flag.html')" value="Add Flag">
+          <input type="button" value="Edit">
+          <input class="DeleteButt" type="button" onclick="ShowDialogBox()" value="Delete">
+          <input class="AddButt" type="button" value="Add Image" onclick="gotoPage('Create_Image.html?email=')">
+        </div>
+
+         <!-- list of flags and images -->
+          <div id="FIList">
+            <ul id="FIListItems">
+
+            </ul>
+          </div>
+      </div>
+    </div>
+
+    <!-- linux shell to test images -->
+    <div id="Terminal">
+      <div id="TerminalHeader">
+        <h1> Test Images </h1>
+        <div class="tooltip">
+          ?
+          <span class="tooltipText">
+            This is where you can <i>test</i> the <span style="color:blue;">Images</span> you create.
+            <br>
+            Simply select one from the dropdown and press <i>Test Image</i>
+          </span>
+        </div>
+        <br>
+        <select id="Images">
+          <option disabled selected hidden> Select an Image </option>
+
+        </select>
+        <input type="button" value="Test Image" onclick="TestImage()">
+
+      </div>
+
+      <!-- the actual shell -->
+      <div id="Linux_Shell">
+          
+      </div>
+    </div>
+
+    <!-- Dialog box for deleting flag or image -->
+    <dialog id="DialogBox">
+        <h3> Which would you want to Delete: </h3>
+        <p id="FlagImage"> </p>
+        <input type="button" value="Delete Flag" onclick="DeleteFlag()">
+        <input type="button" value="Delete Image" onclick="DeleteImage()">
+        <input type="button" value="Cancel" onclick="document.getElementById('DialogBox').close()">
+    </dialog>
+
+    <!-- XtermJS for terminal -->
+	<link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css" />
+	<script src="node_modules/@xterm/xterm/lib/xterm.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/xterm-addon-attach@0.8.0/lib/xterm-addon-attach.min.js"></script>
+	<script>
+		let term;
+		let socket;
+		// create the terminal
+		term = new Terminal();
+		term.open(document.getElementById('Linux_Shell'));
+
+		// create a web socket to connect the terminal
+		socket = new WebSocket('ws://localhost:3000');
+
+		// send the email once the socket opens to start a container
+		socket.onopen = () => {
+			socket.send(JSON.stringify(getEmail()));
+		}
+
+		// connect the terminal to the web socket
+		const attachAddon = new AttachAddon.AttachAddon(socket);
+		term.loadAddon(attachAddon);
+
+	</script>
+  </body>
+</html>

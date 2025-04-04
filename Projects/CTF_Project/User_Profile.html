@@ -1,0 +1,128 @@
+<!--
+	Alex Miller
+	Jordan Latimer
+	
+	Profile Page before entering a contest for User 
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>NMU CTF User Profile Page</title>
+		<link rel="stylesheet" href="Profile_Page.css">
+		<script rel="text/javascript" src="Helpers.js"> </script>
+		<script rel="text/javascript" src="Profile_Page.js"> </script>
+	</head>
+	<body>
+
+		<!-- Header -->
+		 <div id="Header">
+			<h1> Profile </h1>
+			<div class="tooltip">
+				?
+				<span class="tooltipText">
+					This is everything about your profile
+					<br>
+					you can view your Past Contests, Record, 
+					<br>
+					and change your username
+				</span>
+			</div>
+			<br>
+			<br>
+			<input id="ContestsButt" type="button" value="Back to Menu" onclick="gotoPage('User_Menu.html?email=')">
+			<input id="LogoutButt" type="button" value="Logout" onclick="window.location.href = 'Login.html'">
+		</div>
+
+		 <!-- past contests -->
+		 <div id="PastContests">
+			<h1> Past Contests </h1>
+			<div class="tooltip">
+				?
+				<span class="tooltipText">
+					This is every past contest that's still around
+					<br>
+					you can see the <span style="color:white">Leaderboard</span> by clicking
+					<br>
+					on <span style="color:lawngreen">View</span>
+				</span>
+			</div>
+			<br>
+			<br>
+
+			<!-- past contest table -->
+			<div id="Past_Contests">
+				<table>
+					<thead>
+						<tr>
+							<th> Contest Name </th>
+							<th> Flags </th>
+							<th> Leaderboard </th>
+						</tr>
+					</thead>
+					<tbody id="UPCTBody">
+					</tbody>
+				</table>
+			</div>
+		 </div>
+
+		 <!-- usernames -->
+		 <div id="Username">
+			<h1> Edit Username </h1>
+			<div class="tooltip">
+				?
+				<span class="tooltipText">
+					This is where you can change your username
+					<br>
+					simply click <span style="color:blue">Generate</span> and a random 
+					<br>
+					username will be generated, keep going until you find one you like and
+					<br>
+					click <span style="color:lawngreen">Set Name</span> to set that as your username
+				</span>
+			</div>
+			<br>
+			<br>
+
+			<!-- Name generator and logout button -->
+			<div id="Name">
+				<input type="text" id="NameInput" readonly>
+				<input id="generate" type="button" id="NewName" value="Generate" onclick="getNewName()">
+				<br>
+				<br>
+				<br>
+				<input id="setname" type="button" id="SetNewName" value="Set Name" onclick="setNewName()">
+			</div>
+		 </div>
+		 <!-- record -->
+		 <div id="Record">
+			<h1> Record </h1>
+			<div class="tooltip">
+				?
+				<span class="tooltipText">
+					This is where you can view your <span style="color:white">Record</span>
+					<br>
+					to see how well you are doing with all <span style="color:white">Contests</span>
+				</span>
+			</div>
+			<br>
+			<br>
+
+			<!-- record table -->
+			<div id="RecordTable">
+				<table>
+					<thead>
+						<tr>
+							<th> Completed </th>
+							<th> Total </th>
+							<th> Record </th>
+						</tr>
+					</thead>
+					<tbody id="URTbody">
+					</tbody>
+				</table>
+			</div>
+		 </div>
+
+	</body>
+</html>

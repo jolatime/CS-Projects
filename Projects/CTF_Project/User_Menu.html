@@ -1,0 +1,98 @@
+<!--
+    Jordan Latimer
+    Alex Miller
+    
+    First menu for Users that shows all contests
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NMU CTF User Contest</title>
+    <link rel="stylesheet" href="Profile_Page.css">
+    <script rel="text/javascript" src="Helpers.js"> </script>
+    <script rel="text/javascript" src="User_Menu.js"> </script>
+
+    <script>
+
+        // populate both tables for current and past contest(s)
+        window.onload = PopulateTable(0);
+
+    </script>
+
+</head>
+<body>
+
+    <!-- header -->
+    <div id="Header">
+        <h1> Menu </h1>
+        <div class="tooltip">
+            ?
+            <span class="tooltipText">
+                This is the main place for you, the <span style="color:white">User</span>
+            </span>
+        </div>
+        <br>
+        <br>
+        <input id="ContestsButt" type="button" value="Profile" onclick="gotoPage('User_Profile.html?email=')">
+    </div>
+
+    <!-- past contests -->
+    <div id="PastContests">
+        <h1> Past Contests </h1>
+        <div class="tooltip">
+            ?
+            <span class="tooltipText">
+                This is every past contest that's still around
+                <br>
+                you can view the leaderboard or hop in to take a look
+            </span>
+        </div>
+        <br>
+        <br>
+
+        <!-- past contest table -->
+        <div id="Past_Contests">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Contest Name </th>
+                        <th> Flags </th>
+                        <th> Leaderboard </th>
+                    </tr>
+                </thead>
+                <tbody id="UPCTbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- current contest-->
+    <div id="CurrentContest">
+        <h1> Current Contest </h1>
+        <div class="tooltip">
+            ?
+            <span class="tooltipText">
+                This is where the current contest is shown
+                <br>
+                click <span style="color:lawngreen">Join</span> to join in on the fun
+            </span>
+        </div>
+        <br>
+        <br>
+
+        <!-- Current Contest -->
+        <div id="Current_Contest">
+            <table>
+                <thead>
+                    <th> Current Contest </th>
+                    <th> Flags </th>
+                    <th> Join </th>
+                <thead>
+                <tbody id="UCCTbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
