@@ -1,0 +1,37 @@
+<!--
+	Jordan Latimer
+	Alex Miller
+
+	Adding a contest screen for Admin
+-->
+
+<html>
+	<head>
+		<title> Add Contest</title>
+	</head>
+	<body>
+		<h1> Add Contest </h1>
+
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<!-- form for inserting the contest -->
+		<form id="Inputs">
+			<label> Name: </label>
+			<input id="Name" type="text" align="middle" required>
+			<br>
+			<br>
+			<label> Description: </label>
+			<input id="Desc" type="text" align="middle" required>
+		</form>
+		<br>
+		<br>
+
+		<!-- submitting and closing -->
+		<div id="Submit">
+			<button id="AddContest" (click)="AddContest();">Add Contest</button>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,164 @@
+/*
+	Jordan Latimer
+	Alex Miller
+
+	CSS for both Contest Pages
+*/
+
+body {
+	display: grid;
+	background-color: green;
+	
+	/* columns and rows sizes */
+	grid-template-columns: 15% 10% auto 20%;
+	grid-template-rows: 10% 40% 10% auto;
+}
+
+/* Name of the contest at the top left */	
+#Contest_Name {
+	grid-row: 1/2;
+	grid-column: 1/4;
+	
+	text-align: left;
+	font-weight: bold;
+	font-size: 175%;
+}
+	#Contest_Name * {
+		margin: auto;
+	}
+
+/* sidebar thats scrollable for different flags */
+#Flag_Sidebar {
+	background-color: white;
+	grid-row: 2/5;
+	grid-column: 1/2;
+	height: 100%;
+}
+	#Flag_Sidebar ul {
+		list-style-type: none;
+		height: 80%;
+		overflow-y: scroll;
+	}
+
+.hidden {
+	background-color: white;
+	visibility: hidden;
+}
+
+/* details for each flag (name, description, etc) */
+#Flag_Deats {
+	background-color: white;
+	grid-row: 2/3;
+	grid-column: 2/4;
+	text-align: center;
+}
+
+#Notifications {
+	background-color: rgba(65, 145, 55, 0.511);
+	margin-left: 50%;
+	grid-row: 3/4;
+	grid-column: 3/5;
+	display: none;
+}
+
+#Notifications.show {
+	display: block;
+}
+
+	
+/* Submitting the flag */
+#Submit_Flag {
+	background-color: white;
+	grid-row: 3/4;
+	grid-column: 2/4;
+	
+}
+	#Submit_Flag_Stuff * {
+		height: 40%;
+		width: 15%;
+	}
+	#Submit_Butt {
+		background-color: lawngreen;
+		font-weight: bold;
+		font-size: 100%;
+	}
+	#Submit_Flag h3 {
+		font-weight: bold;
+		text-align: left;
+		display: inline;
+	}
+	.Incorrect, .Correct {
+		font-weight: bold;
+		text-align: center;
+		font-size: 125%;
+	}
+	.Incorrect {
+		background-color: red;
+		color: white;
+	}
+	.Correct {
+		background-color: lawngreen;
+		color: black;
+	}
+
+/* hints for each flag */
+#Hints {
+	background-color: white;
+	grid-row: 2/4;
+	grid-column: 4/5;
+	text-align: center;
+}
+
+textarea {
+	background-color: white;
+	resize: none;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+/* Linux Shell for commands */
+#Linux_Shell {
+	grid-row: 4/5;
+	grid-column: 2/5;
+	color: lawngreen;
+}
+
+/* when a flag is selected */
+.selected-flag {
+	background-color: lightgray;
+	font-weight: bold;
+	color: #333;
+}
+
+/* Flags and Hints Labels */
+.FlagHint {
+	background-color: black;
+	color: white;
+	text-align: center;
+	margin: 10px;
+	font-size: 200%;
+}
+
+.CorrectSub {
+	background-color: lawngreen;
+}
+
+
+/* for profile in top right */
+a {
+	color: black;
+	text-decoration: none;
+	text-align: center;
+	font-size: 175%;
+	font-weight: bold;
+	padding: 3%;
+	display: inline;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	background-color: white;
+	color: black;
+}

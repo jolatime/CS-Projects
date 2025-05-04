@@ -1,0 +1,33 @@
+<!-- 
+ 	Alex Miller
+	Jordan Latimer
+	
+	Login for CTF
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div id="inputFields">
+      <h1>NMU CTF</h1>
+      <form id="loginform" (ngSubmit)="SendCreds()">
+        <br>
+        <label for="EM">Email:</label>
+        <input id="EM" type="text" [(ngModel)]="email" name="email" />
+        <br>
+        <label for="PS">Password:</label>
+        <input *ngIf="!showPass" id="PS" type="password" [(ngModel)]="password" name="password" />
+        <input *ngIf="showPass" id="PS" type="text" [(ngModel)]="password" name="password" />
+        <br>
+        <label for="ShowPass">Show Password</label>
+        <input type="checkbox" id="ShowPass" (change)="showPassword()" />
+        <br>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>

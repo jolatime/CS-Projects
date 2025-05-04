@@ -1,0 +1,75 @@
+<div class="bg">
+  <div class="body">
+    <!-- header -->
+    <div id="Header">
+        <h1> Menu </h1>
+        <div class="tooltip">
+            ?
+            <span class="tooltipText">
+                This is the main place for you, the <span style="color:white">User</span>
+            </span>
+        </div>
+        <br>
+        <br>
+        <input id="ContestsButt" type="button" value="Profile" (click)="navtoPage()">
+    </div>
+
+    <!-- past contests -->
+    <div id="PastContests">
+        <h1> Past Contests </h1>
+        <div class="tooltip">
+            ?
+            <span class="tooltipText">
+                This is every past contest that's still around
+                <br>
+                you can view the leaderboard or hop in to take a look
+            </span>
+        </div>
+        <br>
+        <br>
+
+        <!-- past contest table -->
+        <div>
+            <table id="Past_Contests">
+                <thead>
+                    <tr>
+                        <th> Contest Name </th>
+                        <th> Flags </th>
+                        <th> Leaderboard </th>
+                    </tr>
+                </thead>
+                <tbody id="UPCTbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- current contest-->
+    <div id="CurrentContest">
+        <h1> Current Contest </h1>
+        <div class="tooltip">
+            ?
+            <span class="tooltipText">
+                This is where the current contest is shown
+                <br>
+                click <span style="color:lawngreen">Join</span> to join in on the fun
+            </span>
+        </div>
+        <br>
+        <br>
+
+        <!-- Current Contest -->
+        <div id="Current_Contest">
+            <table>
+                <thead>
+                    <th> Current Contest </th>
+                    <th> Flags </th>
+                    <th> Join </th>
+                </thead>
+                <tbody id="UCCTbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<!-- 
+	Alex Miller
+	Jordan Latimer
+	
+	Adding a student page for Admin
+-->
+<html>
+	<head>
+		<title> Add Student </title>
+	</head>
+	<body>
+		<h1> Add Student </h1>
+
+		<br>
+		<br>
+
+		<!-- form for adding a student -->
+		<form id="Inputs">
+			<label> Name: </label>
+			<input id="Name" type="text" [(ngModel)]="Uname" name="Uname" align="middle">
+			<bR>
+			<label> Email: </label>
+			<input id="EM" type="text" [(ngModel)]="email" name="email" align="middle">
+			<br>
+			<label> Password: </label>
+			<input *ngIf="!showPass" id="PS1" type="password" [(ngModel)]="password" name="password" align="middle">
+			<input *ngIf="showPass" id="PS1" type="text" [(ngModel)]="password" name="password" align="middle">
+			<br>
+			<label> Confirm Password: </label>
+			<input *ngIf="!showPass" id="PS2" type="password" [(ngModel)]="confirmPassword" name="confirmPassword" align="middle">
+			<input *ngIf="showPass" id="PS2" type="text" [(ngModel)]="confirmPassword" name="confirmPassword" align="middle">
+			<br>
+			<label> Show Password </label>
+			<input type="checkbox" (click)="ShowPassword()" id="ShowPass">
+		</form>
+		<br>
+		<br>
+
+		<!-- submitting or closing-->
+		<div id="Submit">
+			<button id="AddStudent" (click)="AddStudent()">Add Student</button>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+html, app-login html {
+    background-color: green;
+    height: 100vh;
+}
+app-login body {
+    height: 92vh;
+    margin: 25px;
+    display: grid;
+    background-color: white;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto auto;
+}
+
+#inputFields {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    background-color: green;
+    text-align: center;
+    height: 100%;
+}
+#loginform {
+    background-color: lightgreen;
+    margin: 10px;
+    height: 65%;
+}
+    #loginform * {
+        margin-top: 50px;
+    }
+a {
+    text-decoration: none;
+}
+h1 {
+    font-size: 400%;
+    font-weight: bold;
+}
+button {
+    width: 12%;
+    height: 7%;
+    font-weight: bold;
+    font-size: 100%;
+    background-color: lawngreen;
+}
+label {
+    font-weight: bold;
+    font-size: 100%;
+}

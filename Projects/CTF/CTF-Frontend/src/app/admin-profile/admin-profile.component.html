@@ -1,0 +1,167 @@
+<!-- 
+	Alex Miller
+	Jordan Latimer
+
+	Profile Page for Admins
+-->
+<html>
+	<head>
+		<title> NMU CTF Profile Page </title>
+	</head>
+	<body>
+		<div id="Header">
+			<h1> Profile </h1>
+			<div class="tooltip">
+				?
+				<span class="tooltipText">
+					This is where you can do anything and 
+					<br>
+					everything with your <span style="color: white">Students</span>
+					or look at the current stats for <span style="color: white;">Flags</span>
+				</span>
+			</div>
+			<br>
+			<br>
+			<button class='HeadButts' id="ContestPage" (click)="navtoPageAC()">Back to Contest</button>
+			<button class='HeadButts' id="ModifyContests" (click)="navtoPageMC()">Modify Contests</button>
+			<button class='HeadButts' id="Logout" (click)="onLogout()">Logout</button>
+			<br>
+			<br>
+		</div>
+
+
+		<!-- everything with students side of the page -->
+		<div id="Students">
+			<h1> Students </h1>
+			<div class="tooltip">
+				?
+				<span class="tooltipText">
+					Here you will see a list of your <span style="color:white">Students</span> 
+					<br>
+					you can search for specific students
+					<br>
+					or filter them how you would like
+				</span>
+			</div>
+			<br>
+			<br>
+
+			<!-- searching for students -->
+			<div id="Student_Search">
+				<input id="StudentName" type="text" placeholder="Student Name" [(ngModel)]="searchText">
+				<select id="Options">
+					<option disabled selected hidden> Sort By: </option>
+					<option value="Name (A->Z)"> Name (A->Z) </option>
+					<option value="Name (Z->A)"> Name (Z->A) </option>
+					<option value="Flags (H->L)"> Flags (H->L) </option>
+					<option value="Flags (L->H)"> Flags (L->H) </option>
+				</select>
+				<button class="StudentButts" id="SortButt" (click)="sortTable()">Sort</button>
+				<button class="StudentButts" id="AddStudent" (click)="openAddUserPopup()"> Add Student </button>
+			
+				<div class="tooltip">
+					?
+					<span class="tooltipText">
+						<span style="color:lawngreen;">Add Student: </span> opens a popup to add a <span style="color:white;">Student</span> to the list
+						<br>
+						<span style="color:blue;">Edit: </span> allows you to edit a students <span style="color:white;">Password</span>
+						<br>
+						<span style="color:red;">Delete: </span> Deletes a <span style="color:white;">Student</span>
+					</span>
+				</div>
+			</div>
+
+			<!-- Student Table -->
+			<div id="StudentsTable">
+				<table>
+					<thead>
+						<tr>
+							<th> Student Name </th>
+							<th> Flags </th>
+							<th> Email </th>
+							<th> Change Password </th>
+							<th> Delete </th>
+						</tr>
+					</thead>
+					<tbody id="TBody">
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.Name }}</td>
+                            <td>{{ user.Flags }}</td>
+                            <td>{{ user.Email }}</td>
+                            <td><button id="EditStudent" (click)="openPasswordPopup(user.Email)">Edit</button></td>
+                            <td><button id="DeleteStudent" (click)="openDeleteDialog(user.Email)">Delete</button></td>
+                        </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- everythig with the flags side of the page -->
+		<div id="Flags">
+			<h1> Flags </h1>
+			<div class="tooltip">
+				?
+				<span class="tooltipText">
+					This is where you can look at how your <span style="color:white;">Students</span>
+					<br>
+					are doing with the <span style="color:white;">Flags</span> you created
+				</span>
+			</div>
+			<br>
+			<br>
+
+			<!-- dropdown for contests -->
+			<div id="ContestDropDown">
+				<select id="DropDown" [(ngModel)]="selectedContest">
+					<option disabled selected hidden> Select a Contest </option>
+					<option *ngFor="let contest of contests" [value] ="contest.Name">{{ contest.Name }}</option>
+				</select>
+				<button class="FlagButts" (click)="populateFlagsTable()">Get Flags</button>
+				<button class="FlagButts" (click)="openLeaderboardPopup()">Leaderboard</button>
+			
+				<div class="tooltip">
+					?
+					<span class="tooltipText">
+						<span style="color:white;">Get Flags: </span> shows all the <span style="color:white;">Flags</span> for that contests and the stats
+						<br>
+						<span style="color:white;">Leaderboard: </span> popup a leaderboard for that <span style="color:white;">Contest</span> to see how each <span style="color:white;">Student</span> is doing
+					</span>
+				</div>
+			</div>
+
+			<!-- table for flags -->
+			<div id="FlagsTable">
+				<table>
+					<thead>
+						<tr>
+							<th> Flag Name </th>
+							<th> Attempts </th>
+							<th> Completions </th>
+							<th> Ratio </th>
+						</tr>
+					</thead>
+					<tbody id="FlagTBody">
+                        <tr *ngFor="let flag of flags">
+                            <td>{{ flag.Name }}</td>
+                            <td>{{ getAttempts(flag.FlagID )}}</td>
+                            <td>{{ getCompletions(flag.FlagID) }}</td>
+                            <td [ngStyle]="{ color: getRatioColor(flag.FlagID) }"> {{ getRatio(flag.FlagID) }}%</td>
+                        </tr>
+					</tbody>
+				</table>
+			 </div>
+
+		</div>
+
+		<!-- Dialog box for reassurance of deleting a student -->
+		<dialog id="DialogBox">
+			Are you sure you want to delete <strong id="emailDB">{{ emailToDelete }}</strong>
+			<br>
+			<br>
+			<button (click)="closeDialog()"> Cancel </button>
+			<br>
+			<br>
+			<button id="Delete" (click)="deleteUser()"> Delete </button>
+		</dialog>
+	</body>
+</html>

@@ -1,0 +1,138 @@
+<!--
+    Alex Miller
+    Jordan Latimer
+
+    Page for creating images for flags
+-->
+<html>
+    <head>
+        <title> Create Image </title>
+    </head>
+    <body id="body">
+        
+        <!-- Header -->
+        <div id="HeaderDiv">
+            <h1> Create Image </h1>
+            <div class="tooltip">
+                ?
+                <span class="tooltipText">
+                    This is where you can create <span style="color: white">Images</span>
+                    <br>
+                    These are used as the file system inside the containers
+                </span>
+            </div>
+            <br>
+            <br>
+            <button class="Blue" (click)="navtoPageMC()">Back to Modify</button>
+            <br>
+            <br>
+        </div>
+        
+        <!-- File Contents -->
+        <div id="FileContentsDiv">
+            <h1> Contents of File </h1>
+            <div class="tooltip">
+                ?
+                <span class="tooltipText">
+                    This is where you can insert text to 
+                    <br>
+                    files you create using the <span style="color:white">File and Image</span> section
+                </span>
+            </div>
+            <br>
+            <br>
+            <div id="FileContents">
+                <div id="TextBox">
+                    <textarea id="filecontents" placeholder="Enter contents of files here" cols="40" rows="20"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form for adding files and directories -->
+        <div id="FormDiv">
+            <h1> File and Image </h1>
+            <div class="tooltip">
+                ?
+                <span class="tooltipText">
+                    This is where you add Folders and Files that you are not uploading
+                    <br>
+                    Just insert the name of the file, select a Directory in <span style="color: white">File Tree</span>
+                    <br>
+                    and click the appropriate button to add to the Directory you just selected.
+                    <br>
+                    you can also select multiple Directories at once to add to
+                    <br>
+                    once you're done, simply click <span style="color:lawngreen">Create Image</span>
+                    <br>
+                    to create your new image
+                </span>
+            </div>
+            <br>
+            <br>
+            <div id="FormStuff">
+                <label> Image Name: </label>
+                <input id="ImageName" type="text" placeholder="image name"> 
+                <br>
+                <br>
+                <label> Name: </label>
+                <input id="filename" type="text" placeholder="Folder or File name">
+                <br>
+                <br>
+                <button class="Green" (click)="getFile(true)"> Add Folder</button>
+                <button class="Green" (click)="getFile(false)"> Add File </button>
+                <button (click)="DeleteFile()" style="background-color: red;"> Delete </button>
+                <br>
+                <br>
+                <button class="Green" (click)="CreateImage()" type="submit">Create Image</button>
+            </div>
+        </div>
+
+        <!-- Drop Box -->
+        <div id="DropBoxDiv">
+            <h1> Drop Box </h1>
+            <div class="tooltip">
+                ?
+                <span class="tooltipText">
+                    This is where you can drop files into and add to the <span style="color:white">File Tree</span>
+                    <br>
+                    just drop the files in after selecting the Directories you want
+                    <br>
+                    there is <span style="color:red">NO</span> need to click on <span style="color:lawngreen">Add File</span>
+                </span>
+            </div>
+            <br>
+            <div id="DropBox">
+                <p> Drag and Drop files here or: </p>
+                <input type="file" id="FileInput" multiple (change)="onFileChange($event)">
+            </div>
+        </div>
+
+        <!-- File Tree -->
+        <div id="FileTreeDiv">
+            <h1> File Tree </h1>
+            <div class="tooltip">
+                ?
+                <span class="tooltipText">
+                    In this section, it shows the whole file tree as you are making it
+                    <br>
+                    you can select Directories to <span style="color:lawngreen">Add</span>
+                    <br>
+                    to the Directory or you can select Directories <span style="color:white">AND</span>
+                    <br>
+                    Files and click on <span style="color:red">Delete</span> to delete them
+                    <br>
+                    when deleting a Directory, everything inside that Directoy will be deleted.
+                    <br>
+                    you can also select <span style="background-color:black; color:white">Root</span>
+                    <br>
+                    in order to delete the whole tree itself, Directories are noted by <span style="color:white">(D)-</span>
+                </span>
+            </div>
+            <br>
+            <div id="FileTree">
+
+            </div>
+        </div>
+
+    </body>
+</html>

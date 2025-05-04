@@ -1,0 +1,75 @@
+<!--
+	Alex Miller
+	Jordan Latimer
+	
+	Contest Page for Users
+-->
+<html>
+	<head>
+		<title> NMU CTF Contest Page </title>
+	</head>
+	<body>
+		<!-- Bar at top for moving tabs, this is for the practice contest -->
+		<ng-container  *ngIf="isPractice">
+			<a href="#" (click)="confirmSelection(1); $event.preventDefault()">Leave Practice</a>
+		</ng-container>
+		  
+		<!-- Show if NOT Admin and NOT in Practice -->
+		<ng-container id="Taskbar" *ngIf="!isPractice && !isAdmin">
+			<a href="#" (click)="confirmSelection(2); $event.preventDefault()">Profile</a>
+		</ng-container>
+
+		<!-- Contest name -->
+		<div id="Contest_Name">
+			<h1 id="ContHeader"></h1>
+		</div>
+
+		<!-- Sidebar thats scrollable for different flags -->
+		<div id="Flag_Sidebar">
+			<h2 class="FlagHint"> Flags </h2>
+			<ul id="FlagList">
+
+			</ul>
+		</div>
+
+		<!-- details for each flag (name, description etc) -->
+		<div id="Flag_Deats">
+			<div id ="DefaultMessage">
+				<h2>Welcome to NMU CTF</h2>
+				<p>There are currently no contests active at this time</p>
+			</div>
+			<h2 id="ContName"></h2>
+			<p id="ContDesc"></p>
+			<h2 id="Flag_Name"></h2>
+			<p id="Desc"></p>
+		</div>
+
+		<!-- Submitting the flag -->
+		<div id="Submit_Flag">
+			<div id="Submit_Flag_Stuff">
+				<h3> Submit Flag: </h3>
+				<input type="text" placeholder="NMUCTF${FLAG}">
+				<input id="Submit_Butt" type="submit" value="Submit" (click)="onSubmission()">
+				<p id="Submission_Result"></p>
+			</div>
+		</div>
+
+		<div *ngIf="notificationMessage" id="notificationMessage" class="notificationMessage">
+			{{ notificationMessage }}
+		</div>
+		<!-- Hints for each flag -->
+		<div id="Hints">
+			<div id="Hint_Stuff">
+				<h2 class="FlagHint"> Hints </h2>
+				<div id="Hint_Butts">
+				</div>
+				<br>
+				<br>
+				<textarea readonly rows="15" cols="30" id="Hint_Desc"></textarea>
+			</div>
+		</div>
+
+		<!-- Linux Shell for commands -->
+		<div id="Linux_Shell"></div>
+	</body>
+</html>

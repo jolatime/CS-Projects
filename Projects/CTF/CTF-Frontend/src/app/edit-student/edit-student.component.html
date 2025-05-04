@@ -1,0 +1,35 @@
+<!-- 
+ 	Alex Miller
+	Jordan Latimer
+	
+	Changing passwords of users for Admin
+-->
+<html>
+	<head>
+		<title> Change Password </title>
+	</head>
+	<body>
+
+		<!-- everything needed for adding a student -->
+		<h1> Change Password </h1>
+		<h3 id="Email">Email: {{emailinput}}</h3>
+		<form id="Inputs">
+			<label> Change Password: </label>
+			<input *ngIf="!showPass" id="PS1" type="password" [(ngModel)]="newPassword" name="newPassword" align="middle">
+			<input *ngIf="showPass" id="PS1" type="text" [(ngModel)]="newPassword" name="newPassword" align="middle">
+			<label> Confirm Password: </label>
+			<input *ngIf="!showPass" id="PS2" type="password" [(ngModel)]="confirmPassword" name="confirmPassword" align="middle">
+			<input *ngIf="showPass" id="PS2" type="text" [(ngModel)]="confirmPassword" name="confirmPassword" align="middle">
+			<label> Show Password: </label>
+			<input type='checkbox' (click)='ShowPassword()' id='ShowPass'>
+		</form>
+		<br>
+		<br>
+
+		<!-- submitting or closing -->
+		<div id="Submit">
+			<input id="EditPass" type="submit" (click)="EditPass();">
+			<button onclick="self.close();"> Cancel </button>
+		</div>
+	</body>
+</html>

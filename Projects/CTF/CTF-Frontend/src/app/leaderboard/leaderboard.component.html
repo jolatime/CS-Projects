@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Leaderboard</title>
+    </head>
+    <body id="Leaderboard">
+        
+        <div id="Header">
+            <h1> Leaderboard For</h1>
+            <br>
+            <h1> {{ contest }} Contest</h1>
+            <h2 id="ContestName"> </h2>
+        </div>
+        
+        <!-- table for leaderboard -->
+        <div id="LeaderTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Rank </th>
+                        <th> Name </th>
+                        <th> Flags </th>
+                    </tr>
+                </thead>
+                <tbody id="LeaderTBody">
+                    <tr *ngFor="let user of users; let index = index">
+                        <td>{{ getRank(index+1) }}</td>
+                        <td>{{ user.Name }}</td>
+                        <td>{{ user.Flags }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

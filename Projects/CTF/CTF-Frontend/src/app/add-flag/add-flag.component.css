@@ -1,0 +1,37 @@
+/*
+    Alex Miller
+    Jordan Latimer
+
+    CSS for Add Flag popup window
+*/
+
+#FlagInputs {
+    text-align: center;
+    background-color: lightgreen;
+    padding: 10px;
+}
+h1 {
+    text-align: center;
+}
+#Submit {
+    text-align: center;
+    justify-items: center;
+}
+button {
+    font-weight: bold;
+    height: 15%;
+    width: 20%;
+}
+
+#flagName {
+    background-color: lawngreen;
+}
+select {
+    display: inline-block;
+    width: 170px;
+    margin: 10px;
+    font-weight: bold;
+}
+option {
+    text-align: center;
+}

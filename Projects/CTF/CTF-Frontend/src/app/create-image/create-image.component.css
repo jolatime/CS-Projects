@@ -1,0 +1,102 @@
+/* 
+    Alex Miller
+    Jordan Latimer
+
+    CSS for Create image
+*/
+
+#body {
+	display: grid;
+    grid-template-columns: 30% 30% auto;
+    grid-template-rows: auto auto auto auto auto;
+    background-color: lightgreen;
+    text-align: center;
+}
+
+/* Header */
+#HeaderDiv {
+    grid-row: 1/2;
+    grid-column: 1/4;
+    background-color: green;
+    margin: 10px;
+}
+
+/* form stuff like image name, file name, add file etc */
+#FormDiv {
+    grid-row: 2/3;
+    grid-column: 1/4;
+    background-color: green;
+    margin: 10px;
+}
+    #FormStuff {
+        margin: 10px;
+        text-align: center;
+        background-color: white;
+    }
+
+/* Contents of the File */
+#FileContentsDiv {
+    grid-row: 3/6;
+    grid-column: 1/2;
+    background-color: green;
+    margin: 10px;
+}
+    #FileContents { 
+        margin-bottom: 10px;
+    }
+
+/* drop box to drop files */
+#DropBoxDiv {
+    grid-row: 3/6;
+    grid-column: 2/3;
+    background-color: green;
+    margin: 10px;
+}
+    #DropBox {
+        border: 3px black dashed;
+        align-content: center;
+        justify-items: center;
+        background-color: white;
+        margin: 10px;
+        height: 310px;
+    }
+
+/* file tree visual */
+#FileTreeDiv {
+    grid-row: 3/6;
+    grid-column: 3/4;
+    background-color: green;
+    margin: 10px;
+    text-align: center;
+}
+    #FileTree {
+        background-color: white;
+        margin: 10px;
+        height: 310px;
+        overflow-y: scroll;
+        overflow-x: scroll;
+        text-align: left;
+    }
+
+
+
+textarea {
+	resize: none;
+}
+.Green {
+    background-color: lawngreen;
+}
+.Blue {
+    background-color: blue;
+    color: white;
+    height: 25%;
+}
+button {
+    font-weight: bold;
+    width: 10%;
+    height: 25%;
+    margin: 10px;
+}
+h1 {
+    display: inline;
+}
